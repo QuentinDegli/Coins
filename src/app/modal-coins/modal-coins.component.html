@@ -1,0 +1,29 @@
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">{{ coinsEnfant?.symbol }}-{{ coinsEnfant?.name }} </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p>Rank: {{ coinsEnfant?.rank }}</p>
+            <p>Price: {{ coinsEnfant?.priceUsd | number:'1.0-0' }} USD</p>
+            <p>
+                <span *ngIf="coinsEnfant?.maxSupply !== null && coinsEnfant?.maxSupply !== undefined">
+                    {{ coinsEnfant?.maxSupply | number:'1.2-2' }}
+                  </span>
+                  <span *ngIf="coinsEnfant?.maxSupply === null || coinsEnfant?.maxSupply === undefined">
+                    Pas d'offre max
+                  </span>
+            </p>
+            <p>Nice !</p>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,22 @@
+<label for="name">Rechercher</label>
+<input type="text" [(ngModel)]="search" placeholder="Rechercher une crypto" name="name">
+
+<div class="card-group">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div *ngFor="let coin of coins | filter:search" class="card mb-3 p-3" style="width: 18rem;">
+        <div class="card-body text-center">
+          <h2 class="card-title">{{ coin.name }}</h2>
+          <p class="card-text">Symbol: {{ coin.symbol }}</p>
+          <p class="card-text">Rank: {{ coin.rank }}</p>
+          <p class="card-text">Actual price: {{ coin.priceUsd | number:'1.0-0' }}</p>
+        </div>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="selectCoins(coin)">
+          Open modal
+        </button>
+        <app-modal-coins [coinsEnfant]="coinsParent" ></app-modal-coins>
+      </div>
+    </div>
+  </div>
+
+
+
